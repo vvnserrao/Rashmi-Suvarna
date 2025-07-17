@@ -247,11 +247,20 @@ social-links a:hover {
     background-color: rgba(100, 255, 218, 0.1);
 }
 
-.achievements-grid {
+.achievements-grid, .certificates-list {
+    max-width: 1100px;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
-    margin-top: 2rem;
+}
+
+.achievements-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.certificates-list {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
 }
 
 .achievement-card {
@@ -267,18 +276,14 @@ social-links a:hover {
 
 .achievement-card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 .achievement-content {
-    padding: 1.5rem;
-}
-
-.certificates-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+    padding: 1rem;
+    text-align: center;
 }
 
 .certificate-item {
@@ -288,11 +293,13 @@ social-links a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
 
 .certificate-item h3 {
     margin: 0;
     color: var(--heading-color);
+    flex: 1;
 }
 
 .view-cert {
@@ -310,43 +317,60 @@ social-links a:hover {
 }
 
 footer {
-    background-color: rgba(255, 255, 255, 0.02);
-    padding: 2rem 16px 1rem;
-    margin-top: 32px;
-    max-width: 1100px;
-    margin-left: auto;
-    margin-right: auto;
+    background-color: rgba(10, 25, 47, 0.95);
+    color: var(--heading-color);
+    padding: 2rem 1rem;
+    text-align: center;
 }
 
-.contact-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 3rem 0;
-}
-
-.contact-info {
+.footer-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1.5rem;
 }
 
-.contact-item {
+.contact-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
+}
+
+.contact-info span {
     color: var(--heading-color);
 }
 
-.contact-item i {
+.contact-info a {
     color: var(--secondary-color);
-    font-size: 1.2rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-info a:hover {
+    color: var(--heading-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: var(--heading-color);
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
 }
 
 .footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
 }
 
 /* --- Container for Consistent Width --- */
@@ -416,5 +440,164 @@ footer {
 
     .achievements-grid {
         grid-template-columns: 1fr;
+    }
+
+    .certificates-list {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+    }
+}
+
+/* --- Center Achievements and Certificates Sections --- */
+#achievements, #certificates {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.achievement-card, .certificate-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem 1rem;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.achievement-card img, .certificate-item img {
+    width: 100%;
+    max-width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.certificate-item h3 {
+    margin: 0.5rem 0 0.5rem 0;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+}
+
+.certificate-item p {
+    margin: 0 0 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+    .achievements-grid, .certificates-list {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+    .achievement-card, .certificate-item {
+        max-width: 95vw;
+    }
+    #achievements, #certificates {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* --- Achievements Section Consistency --- */
+#achievements {
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.achievement-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem 1rem;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    min-height: 320px;
+}
+.achievement-card img {
+    width: 100%;
+    max-width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--secondary-color);
+}
+.achievement-content {
+    padding: 0.5rem 0 0 0;
+    text-align: center;
+}
+
+/* --- Certificates Section Consistency --- */
+#certificates {
+    margin-bottom: 48px;
+}
+.certificate-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 1.5rem 1rem;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    min-height: 180px;
+}
+.certificate-item h3 {
+    margin: 0.5rem 0 0.5rem 0;
+    color: var(--heading-color);
+    font-size: 1.1rem;
+}
+.certificate-item p {
+    margin: 0 0 0.5rem 0;
+}
+
+/* --- Center Section Headings --- */
+#achievements h2, #certificates h2 {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 900px) {
+    .achievements-grid, .certificates-list, .projects-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
     }
 }
