@@ -1,8 +1,8 @@
 :root {
     --primary-color: #0a192f;
     --secondary-color: #64ffda;
-    --text-color: #8892b0;
-    --heading-color: #ccd6f6;
+    --text-color: #e6f1ff; /* Updated for better visibility */
+    --heading-color: #ffffff; /* Updated for better visibility */
 }
 
 * {
@@ -14,7 +14,7 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--primary-color);
-    color: var(--text-color);
+    color: var(--text-color); /* Updated for better visibility */
     line-height: 1.6;
 }
 
@@ -108,10 +108,35 @@ section {
     flex: 0 0 300px;
 }
 
+h1, h2, h3 {
+    color: var(--heading-color); /* Updated for better visibility */
+}
+
 h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
+    font-weight: 700;
     color: var(--heading-color);
-    margin-bottom: 1rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    line-height: 1.15;
+    text-shadow: 0 2px 8px rgba(10,25,47,0.15);
+}
+
+@media (max-width: 900px) {
+    h1 {
+        font-size: 2.2rem;
+        padding: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+        padding: 0 0.2rem;
+        margin-bottom: 0.8rem;
+    }
 }
 
 .typing-text {
@@ -339,7 +364,7 @@ footer {
 }
 
 .contact-info span {
-    color: var(--heading-color);
+    color: var(--heading-color); /* Updated for better visibility */
 }
 
 .contact-info a {
@@ -349,7 +374,7 @@ footer {
 }
 
 .contact-info a:hover {
-    color: var(--heading-color);
+    color: var(--heading-color); /* Updated hover effect */
 }
 
 .social-links {
@@ -599,5 +624,11 @@ footer {
     .achievements-grid, .certificates-list, .projects-grid {
         grid-template-columns: 1fr;
         max-width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-image, .profile-image {
+        margin-top: 2.5rem;
     }
 }
